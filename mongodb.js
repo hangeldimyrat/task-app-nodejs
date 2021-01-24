@@ -15,5 +15,31 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         lastName:'Çepni',
         age: 24,
         hometown:'Trabzon'
+    },(error, result) => {
+        if(error){
+            return console.log(error);
+        };
+
+        console.log(result.ops);
+    });
+
+    db.collection('users').insertMany([
+        {
+            name:'Murat',
+            lastName:'Çepni',
+            age: 24,
+            hometown:'Trabzon'
+        },
+        {
+            name:'Sohrat',
+            lastName:'Çepni',
+            age: 24,
+            hometown:'Trabzon'
+        }
+    ],(error, result)=>{
+        if (error) {
+            return console.log(error);
+        };
+        console.log(result.ops);
     });
 });
