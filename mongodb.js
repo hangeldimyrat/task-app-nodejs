@@ -10,34 +10,18 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
     };
 
     const db = client.db(databaseName);
-    db.collection('users').insertOne({
-        name:'Murat',
-        lastName:'Çepni',
-        age: 24,
-        hometown:'Trabzon'
-    },(error, result) => {
-        if(error){
-            return console.log(error);
-        };
 
-        console.log(result.ops);
-    });
-
-    db.collection('users').insertMany([
+    db.collection('tasks').insertMany([
         {
-            name:'Murat',
-            lastName:'Çepni',
-            age: 24,
-            hometown:'Trabzon'
+            description:'Start MongoDB',
+            completed: true
         },
         {
-            name:'Sohrat',
-            lastName:'Çepni',
-            age: 24,
-            hometown:'Trabzon'
+            description:'Sent multiple collections',
+            completed: true
         }
-    ],(error, result)=>{
-        if (error) {
+    ],(error, result) => {
+        if(error){
             return console.log(error);
         };
         console.log(result.ops);
